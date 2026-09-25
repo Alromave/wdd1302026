@@ -7,7 +7,7 @@ and other values that are repeated.*/
    ============================================================ */
 :root {
     /* ---------- COLORES ---------- */
-    --color-primario: #6c5ce7;
+    --color-primario: blue;
     --color-primario-dark: #4834d4;
     --color-acento: #00cec9;
 
@@ -164,7 +164,7 @@ h1 {
     font-size: var(--texto-3xl);
     font-weight: var(--peso-bold);
     line-height: var(--leading-tight);
-    color: var(--color-texto);
+    color: var(--color-primario);
     padding-bottom: var(--esp-2);
     border-bottom: 3px solid var(--color-acento);
     margin-bottom: var(--esp-6);

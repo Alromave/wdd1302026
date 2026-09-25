@@ -1,64 +1,311 @@
-/* Este archivo permite dar forma a mi página principal */
-main {
-    max-width: 840px;
+/* Review your course home page CSS and look for colors,
+fonts,
+sizes,
+and other values that are repeated.*/
+/* ============================================================
+   TOKENS / VARIABLES GLOBALES
+   ============================================================ */
+:root {
+    /* ---------- COLORES ---------- */
+    --color-primario: lightblue;
+    --color-primario-dark: #4834d4;
+    --color-acento: #00cec9;
+
+    --color-bg: #ffffff;
+    --color-bg-alt: #f5f6fa;
+    --color-texto: #2d3436;
+    --color-texto-suave: #636e72;
+    --color-borde: #dfe6e9;
+
+    /* ---------- TIPOGRAFÍA ---------- */
+    --fuente-base: 'Inter', system-ui, -apple-system, sans-serif;
+    --fuente-titulos: 'Poppins', var(--fuente-base);
+
+    --texto-xs: 0.75rem;
+    /* 12px */
+    --texto-sm: 0.875rem;
+    /* 14px */
+    --texto-base: 1rem;
+    /* 16px */
+    --texto-lg: 1.25rem;
+    /* 20px */
+    --texto-xl: 1.563rem;
+    /* 25px */
+    --texto-2xl: 1.953rem;
+    /* 31px */
+    --texto-3xl: 2.441rem;
+    /* 39px */
+
+    --peso-normal: 400;
+    --peso-medio: 500;
+    --peso-bold: 700;
+
+    --leading-tight: 1.2;
+    --leading-base: 1.6;
+
+    /* ---------- ESPACIADOS (base 4px) ---------- */
+    --esp-1: 0.25rem;
+    --esp-2: 0.5rem;
+    --esp-3: 0.75rem;
+    --esp-4: 1rem;
+    --esp-6: 1.5rem;
+    --esp-8: 2rem;
+    --esp-12: 3rem;
+    --esp-16: 4rem;
+
+    /* ---------- RADIOS Y SOMBRAS ---------- */
+    --radio-sm: 4px;
+    --radio-md: 8px;
+    --radio-lg: 16px;
+    --radio-full: 9999px;
+
+    --sombra-sm: 0 1px 3px rgba(0, 0, 0, .08);
+    --sombra-md: 0 4px 12px rgba(0, 0, 0, .10);
+    --sombra-lg: 0 12px 32px rgba(0, 0, 0, .14);
+
+    /* ---------- LAYOUT ---------- */
+    --ancho-contenido: 1100px;
+    --ancho-texto: 65ch;
+    --alto-header: 64px;
+
+    /* ---------- TRANSICIONES ---------- */
+    --trans-rapida: 150ms ease;
+    --trans-base: 250ms ease;
 }
 
-main img {
-    width: 150px;
-    height: auto;
-    border: 1px solid steelblue;
-    padding: 2px;
-    box-shadow: 0 0 30px gray;
+/* ============================================================
+   RESET LIGERO
+   ============================================================ */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
 
-nav {
-    background-color: darkblue;
-
-    padding: 10px;
+html {
+    scroll-behavior: smooth;
 }
 
-nav a {
-    color: white;
-    display: block;
-    padding: 20px;
-}
-
-h1 {
-    color: darkblue;
+body,
+h1,
+h2,
+p {
+    margin: 0;
 }
 
 img {
-    width: 150px;
+    display: block;
+    max-width: 100%;
     height: auto;
-    border: 1px solid black;
-    padding: 1px;
-    box-shadow: 0 030px gray;
 }
 
-p {
-    padding: 0;
+/* ============================================================
+   BODY — base global
+   ============================================================ */
+body {
+    font-family: var(--fuente-base);
+    font-size: var(--texto-base);
+    font-weight: var(--peso-normal);
+    line-height: var(--leading-base);
+    color: var(--color-texto);
+    background-color: var(--color-bg);
+
+    max-width: var(--ancho-contenido);
+    margin-inline: auto;
+    padding: var(--esp-4);
 }
 
+/* ============================================================
+   HEADER + NAV
+   ============================================================ */
+header {
+    background-color: var(--color-bg-alt);
+    border-radius: var(--radio-md);
+    box-shadow: var(--sombra-sm);
+    margin-bottom: var(--esp-8);
+}
+
+nav {
+    display: flex;
+    color: blue;
+    justify-content: center;
+    gap: var(--esp-6);
+    padding: var(--esp-4);
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: blue;
+    text-decoration: none;
+    font-weight: var(--peso-medio);
+    font-size: var(--texto-base);
+    padding: var(--esp-2) var(--esp-4);
+    border-radius: var(--radio-full);
+    transition: background var(--trans-rapida), color var(--trans-rapida);
+}
+
+nav a:hover,
+nav a:focus-visible {
+    background-color: var(--color-primario);
+    color: #ffffff;
+    outline: none;
+}
+
+/* ============================================================
+   MAIN
+   ============================================================ */
+main {
+    background-color: var(--color-bg);
+    padding: var(--esp-6);
+    margin-bottom: var(--esp-8);
+}
+
+h1 {
+    font-family: var(--fuente-titulos);
+    font-size: var(--texto-3xl);
+    font-weight: var(--peso-bold);
+    line-height: var(--leading-tight);
+    color: var(--color-primario);
+    padding-bottom: var(--esp-2);
+    border-bottom: 3px solid var(--color-acento);
+    margin-bottom: var(--esp-6);
+}
+
+main img {
+    width: 200px;
+    height: auto;
+    border-radius: var(--radio-md);
+    box-shadow: var(--sombra-md);
+    margin-block: var(--esp-6);
+    background-color: var(--color-bg-alt);
+}
+
+main p {
+    font-size: var(--texto-lg);
+    line-height: var(--leading-base);
+    color: var(--color-texto);
+    max-width: var(--ancho-texto);
+    margin-bottom: var(--esp-4);
+}
+
+/* ============================================================
+   ASIDE
+   ============================================================ */
 aside {
-    width: 20em;
-    margin: 1em;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    padding: 1em;
-    background-color: #eee;
-    color: #333;
-    text-align: center;
+    background-color: var(--color-bg-alt);
+    border-left: 4px solid var(--color-primario);
+    border-radius: var(--radio-md);
+    padding: var(--esp-6);
+    margin-bottom: var(--esp-8);
+    box-shadow: var(--sombra-sm);
+}
+
+aside h2 {
+    font-family: var(--fuente-titulos);
+    font-size: var(--texto-xl);
+    font-weight: var(--peso-bold);
+    line-height: var(--leading-tight);
+    color: var(--color-primario);
+    margin-bottom: var(--esp-4);
 }
 
 aside img {
-    width: 200px;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-    box-shadow: none;
+    border-radius: var(--radio-md);
+    box-shadow: var(--sombra-sm);
+    margin-block: var(--esp-4);
+    background-color: var(--color-borde);
 }
 
+aside p {
+    font-size: var(--texto-base);
+    color: var(--color-texto-suave);
+    line-height: var(--leading-base);
+    max-width: var(--ancho-texto);
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
 footer {
-    margin-top: 1em;
-    border-top: 1px solid #000;
+    background-color: var(--color-texto);
+    color: var(--color-bg);
+    font-size: var(--texto-sm);
+    line-height: var(--leading-base);
     text-align: center;
+
+    padding: var(--esp-8) var(--esp-6);
+    margin-top: var(--esp-8);
+    border-top: 4px solid var(--color-primario);
+    border-radius: var(--radio-md);
+}
+
+footer p {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--esp-2);
+    flex-wrap: wrap;
+}
+
+footer a {
+    color: var(--color-acento);
+    text-decoration: none;
+    transition: color var(--trans-rapida);
+}
+
+footer a:hover {
+    color: var(--color-primario);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 640px) {
+    :root {
+        --texto-3xl: 1.953rem;
+        /* h1 más pequeño en móvil */
+        --texto-xl: 1.25rem;
+        /* h2 del aside más pequeño */
+    }
+
+    body {
+        padding: var(--esp-3);
+    }
+
+    nav {
+        gap: var(--esp-3);
+    }
+
+    main,
+    aside {
+        padding: var(--esp-4);
+    }
+
+    footer {
+        padding: var(--esp-6) var(--esp-4);
+    }
+}
+
+/* ============================================================
+   MODO OSCURO AUTOMÁTICO
+   ============================================================ */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --color-bg: #121212;
+        --color-bg-alt: #1e1e1e;
+        --color-texto: #eaeaea;
+        --color-texto-suave: #a0a0a0;
+        --color-borde: #2a2a2a;
+
+        --sombra-sm: 0 1px 3px rgba(0, 0, 0, .5);
+        --sombra-md: 0 4px 12px rgba(0, 0, 0, .6);
+        --sombra-lg: 0 12px 32px rgba(0, 0, 0, .7);
+    }
+
+    /* El footer invierte automáticamente */
+    footer {
+        background-color: var(--color-bg-alt);
+        color: var(--color-texto);
+    }
 }
